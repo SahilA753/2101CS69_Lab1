@@ -73,7 +73,7 @@ void merge(int arr[], int p, int q, int r) {
   j = 0;
   k = p;
 
-  // Until we reach either end of either L or M, pick larger amon elements L and M and place them in the correct position at A[p..r]
+  // Until
   while (i < n1 && j < n2) {
     if (L[i] <= M[j]) {
       arr[k] = L[i];
@@ -85,8 +85,7 @@ void merge(int arr[], int p, int q, int r) {
     k++;
   }
 
-  // When we run out of elements in either L or M,
-  // pick up the remaining elements and put in A[p..r]
+  // pick 
   while (i < n1) {
     arr[k] = L[i];
     i++;
@@ -100,19 +99,68 @@ void merge(int arr[], int p, int q, int r) {
   }
 }
 
-// Divide the array into two subarrays, sort them and merge them
 void mergeSort(int arr[], int l, int r) {
   if (l < r) {
 
-    // m is the point where the array is divided into two subarrays
     int m = l + (r - l) / 2;
 
     mergeSort(arr, l, m);
     mergeSort(arr, m + 1, r);
 
-    // Merge the sorted subarrays
     merge(arr, l, m, r);
   }
+}
+
+void swap(int* a, int* b)
+{
+    int t = *a;
+    *a = *b;
+    *b = t;
+}
+ 
+
+int partition(int arr[], int l, int h)
+{
+    int x = arr[h];
+    int i = (l - 1);
+ 
+    for (int j = l; j <= h - 1; j++) {
+        if (arr[j] <= x) {
+            i++;
+            swap(&arr[i], &arr[j]);
+        }
+    }
+    swap(&arr[i + 1], &arr[h]);
+    return (i + 1);
+}
+ 
+
+void quicksort(int arr[], int l, int h)
+{
+    int s[h - l + 1];
+ 
+    int top = -1;
+ 
+    s[++top] = l;
+    s[++top] = h;
+ 
+   
+    while (top >= 0) {
+        
+        h = s[top--];
+        l = s[top--];
+        int p = partition(arr, l, h);
+ 
+        if (p - 1 > l) {
+            s[++top] = l;
+            s[++top] = p - 1;
+        }
+ 
+        if (p + 1 < h) {
+            s[++top] = p + 1;
+            s[++top] = h;
+        }
+    }
 }
 
 
@@ -162,6 +210,12 @@ int main() {
         mergeSort(arr,0,n-1);
         PA(arr,n);
         break;
+        case 5:
+        quicksort(arr,0,n-1);
+        PA(arr,n);
+        break;
+        
+
 
 
 
