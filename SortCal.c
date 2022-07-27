@@ -20,7 +20,28 @@ void insertionSort(int arr[], int n)
       arr[d+1] = t;
   }
 }
+void selectionsort(int arr[],int n){
+    int c,position,d,t;
 
+for (c = 0; c < (n - 1); c++) // finding minimum element (n-1) times
+  {
+    position = c;
+
+    for (d = c + 1; d < n; d++)
+    {
+      if (arr[position] > arr[d])
+        position = d;
+    }
+    if (position != c)
+    {
+      t = arr[c];
+      arr[c] = arr[position];
+      arr[position] = t;
+    }
+  }
+
+
+}
   
 
 
@@ -55,7 +76,10 @@ int main() {
         insertionSort(arr, n);
         PA(arr,n);
         break;
-       
+        case 2:
+        selectionsort(arr, n);
+        PA(arr,n);
+        break;
 
         default:
         printf("Please input a valid Sorting Method");
