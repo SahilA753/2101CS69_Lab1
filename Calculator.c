@@ -38,6 +38,9 @@ int main() {
         case '*':
         printf("%lf x %lf = %lf", num1, num2, mul(num1,num2));
         break;
+        case '^':
+        printf("%lf ^ %lf = %lf", num1, num2, pow(num1,num2));
+        break;
 
 
         
