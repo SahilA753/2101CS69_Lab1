@@ -4,6 +4,10 @@ double add( double a, double b){
     double c= a+b;
     return c;
 }
+double sub( double a, double b){
+    double c= a-b;
+    return c;
+}
 
 int main() {
     char operator;
@@ -16,6 +20,9 @@ int main() {
     switch(operator) {
         case '+':
         printf("%lf + %lf = %lf", num1, num2, add(num1,num2));
+        break;
+        case '-':
+        printf("%lf - %lf = %lf", num1, num2, sub(num1,num2));
         break;
 
         
