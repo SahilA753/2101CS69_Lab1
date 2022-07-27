@@ -42,6 +42,22 @@ for (c = 0; c < (n - 1); c++) // finding minimum element (n-1) times
 
 
 }
+void bubblesort(int arr[],int n){
+
+    int c,d,swap;
+    for (c = 0 ; c < n - 1; c++)
+  {
+    for (d = 0 ; d < n - c - 1; d++)
+    {
+      if (arr[d] > arr[d+1]) /* For decreasing order use '<' instead of '>' */
+      {
+        swap  = arr[d];
+        arr[d]   = arr[d+1];
+        arr[d+1] = swap;
+      }
+    }
+  }
+}
   
 
 
@@ -80,6 +96,11 @@ int main() {
         selectionsort(arr, n);
         PA(arr,n);
         break;
+         case 3:
+        bubblesort(arr, n);
+        PA(arr,n);
+        break;
+
 
         default:
         printf("Please input a valid Sorting Method");
