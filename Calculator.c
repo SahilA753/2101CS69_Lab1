@@ -8,6 +8,10 @@ double sub( double a, double b){
     double c= a-b;
     return c;
 }
+double div( double a, double b){
+    double c= a/b;
+    return c;
+}
 
 int main() {
     char operator;
@@ -23,6 +27,9 @@ int main() {
         break;
         case '-':
         printf("%lf - %lf = %lf", num1, num2, sub(num1,num2));
+        break;
+        case '/':
+        printf("%lf / %lf = %lf", num1, num2, div(num1,num2));
         break;
 
         
