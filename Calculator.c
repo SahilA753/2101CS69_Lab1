@@ -12,6 +12,10 @@ double div( double a, double b){
     double c= a/b;
     return c;
 }
+double mul( double a, double b){
+    double c= a*b;
+    return c;
+}
 
 int main() {
     char operator;
@@ -31,6 +35,10 @@ int main() {
         case '/':
         printf("%lf / %lf = %lf", num1, num2, div(num1,num2));
         break;
+        case '*':
+        printf("%lf x %lf = %lf", num1, num2, mul(num1,num2));
+        break;
+
 
         
         default:
